@@ -42,7 +42,7 @@ export function Layout({ children }: LayoutProps) {
             <img 
               src="/neublox-logo.png" 
               alt="NeuBlox Logo" 
-              className="h-11 w-auto object-contain"
+              className="h-22 w-auto object-contain"
               onError={(e) => {
                 // If the logo fails to load, replace with styled text wordmark
                 e.currentTarget.style.display = 'none';
