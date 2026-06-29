@@ -1,0 +1,191 @@
+Build a polished, modern stealth company website for NeuBlox AI Inc. at neublox.ai.
+
+Context:
+NeuBlox is a stealth Physical AI company. The website should create credibility and curiosity without revealing the company’s detailed product, architecture, team, customer pipeline, technical roadmap, patents, silicon strategy, or exact robotics use cases.
+
+Primary website goal:
+Create a professional landing site that says NeuBlox is working on next-generation infrastructure for Physical AI and lets investors, partners, talent, and ecosystem collaborators stay in touch.
+
+Technology requirements:
+
+* Use Next.js with TypeScript.
+* Use Tailwind CSS for styling.
+* Create a clean, responsive design for desktop and mobile.
+* Use a Markdown or MDX-based blog system so blog posts can be added easily.
+* Keep the site fast, minimal, SEO-friendly, and production-ready.
+* Include simple Open Graph metadata.
+* Include a sitemap and robots.txt if practical.
+* Do not use a database unless necessary.
+* Contact form can initially use a mailto fallback or a configurable endpoint placeholder.
+* Put all configurable company/contact values in a simple config file.
+
+Brand direction:
+
+* Company name: NeuBlox
+* Use the following colors:
+
+  * Primary blue: #2e5e7f
+  * Dark navy: #183f59
+  * Medium blue: #4b789e
+  * Light blue: #6fa3c8
+  * Background: white or very light blue-gray
+* Design style: premium, restrained, deep-tech, Physical AI, robotics infrastructure, venture-backed stealth startup.
+* Avoid flashy AI clichés, cartoon robots, humanoid imagery, or generic chip graphics.
+* Use abstract geometric visuals, subtle grid patterns, motion-inspired lines, or block-inspired motifs.
+* Include a placeholder logo image path: /public/neublox-logo.png. If the logo file is missing, render the text “NeuBlox” in a polished wordmark style.
+
+Pages to build:
+
+1. Home page
+   Sections:
+
+* Hero
+* “Physical AI is entering the real world”
+* “What we are exploring”
+* “Why now”
+* “Insights”
+* “Stay in touch”
+
+Hero copy:
+Headline:
+Building infrastructure for Physical AI.
+
+Subheadline:
+NeuBlox is a stealth company working at the intersection of AI, robotics, and real-world intelligent systems.
+
+CTA buttons:
+
+* Stay in Touch
+* Read Insights
+
+Supporting note:
+We are currently sharing limited public information while engaging selectively with investors, partners, and ecosystem collaborators.
+
+Section: Physical AI is entering the real world
+Copy:
+The next wave of AI will not live only in text, images, and software workflows. It will move into machines that perceive, reason, adapt, and act in dynamic physical environments. NeuBlox is focused on the infrastructure layer required to make that transition practical, scalable, and real-time.
+
+Section: What we are exploring
+Create three cards:
+
+1. Real-world intelligence
+   Copy: Systems that connect perception, decision-making, and action in physical environments.
+
+2. Efficient AI infrastructure
+   Copy: Architectures that can support responsive, low-latency intelligence beyond traditional cloud-centric AI.
+
+3. Robotics ecosystem enablement
+   Copy: Tools and platforms that help accelerate the path from simulation, training, and validation to deployment.
+
+Important: Keep these statements broad. Do not describe detailed product architecture.
+
+Section: Why now
+Copy:
+Foundation models are expanding from digital reasoning into physical-world interaction. At the same time, robotics, simulation, edge compute, and AI infrastructure are converging. This creates a new opportunity to rethink the compute and software stack for intelligent machines.
+
+Section: Insights
+Show latest blog posts from Markdown/MDX files.
+Use category labels such as:
+
+* Physical AI
+* Robotics
+* AI Infrastructure
+* Edge Intelligence
+* Simulation
+* Real-Time Systems
+
+Section: Stay in touch
+Copy:
+NeuBlox is currently in stealth. If you are an investor, robotics partner, AI infrastructure company, or builder interested in Physical AI, we would be glad to connect.
+
+Form fields:
+
+* Name
+* Email
+* Company
+* Interest area dropdown: Investor, Partner, Talent, Media, Other
+* Message
+  Button: Request Contact
+
+2. Insights page
+
+* List all blog posts.
+* Include title, date, category, excerpt, and read-more link.
+* Blog posts should come from local Markdown/MDX files.
+* Add search/filter by category if simple.
+
+3. Blog detail page
+
+* Render Markdown/MDX content cleanly.
+* Include title, date, category, author.
+* Default author should be “NeuBlox Insights”.
+* Do not expose individual team bios.
+* Include back link to Insights.
+
+4. Contact page
+   Headline:
+   Stay in touch with NeuBlox.
+
+Copy:
+We are currently operating in stealth and selectively engaging with investors, partners, and ecosystem collaborators.
+
+Include the same contact form from the home page.
+
+Content guardrails:
+Do not include:
+
+* Team page
+* Founder bios
+* Specific employee names
+* Product architecture
+* Chip architecture
+* Customer names
+* Investor names
+* Funding details
+* Detailed roadmap
+* Patent details
+* Claims like “world’s first” or “revolutionary” unless written as generic marketing placeholder
+* Any mention of exact internal projects, demos, or technical implementation
+
+Include sample blog posts as placeholders:
+
+1. Title: Physical AI Is Moving from Models to Machines
+   Category: Physical AI
+   Excerpt: AI is beginning to move beyond digital workflows into systems that perceive, decide, and act in the physical world.
+
+2. Title: Why Real-Time Intelligence Matters for Robotics
+   Category: Robotics
+   Excerpt: Physical-world AI requires responsiveness, efficiency, and reliability that are different from traditional cloud AI workloads.
+
+3. Title: The Emerging Infrastructure Stack for Intelligent Machines
+   Category: AI Infrastructure
+   Excerpt: Robotics, simulation, edge compute, and foundation models are converging into a new infrastructure category.
+
+Create these as Markdown/MDX files under a /content/blog or similar directory.
+
+Implementation details:
+
+* Create reusable components:
+
+  * Header
+  * Footer
+  * Hero
+  * Section
+  * BlogCard
+  * ContactForm
+  * CTASection
+* Header nav:
+
+  * Home
+  * Insights
+  * Contact
+* Footer:
+
+  * NeuBlox
+  * “Building infrastructure for Physical AI.”
+  * Links: Insights, Contact
+  * Copyright current year NeuBlox AI Inc.
+* Make design polished and investor-grade.
+* Use subtle animations only if lightweight.
+* Make sure the site runs successfully in Replit with clear setup instructions.
+* Provide final instructions for adding new blog posts.
