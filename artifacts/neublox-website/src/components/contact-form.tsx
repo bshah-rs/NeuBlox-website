@@ -7,7 +7,9 @@ import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
-import { CheckCircle2 } from "lucide-react";
+import { CheckCircle2, Loader2 } from "lucide-react";
+import { useSubmitContactForm } from "@workspace/api-client-react";
+import { useToast } from "@/hooks/use-toast";
 
 const contactSchema = z.object({
   name: z.string().min(2, "Name is required"),
@@ -21,6 +23,7 @@ type ContactFormValues = z.infer<typeof contactSchema>;
 
 export function ContactForm() {
   const [submitted, setSubmitted] = useState(false);
+  const { toast } = useToast();
 
   const form = useForm<ContactFormValues>({
     resolver: zodResolver(contactSchema),
@@ -33,11 +36,23 @@ export function ContactForm() {
     },
   });
 
+  const submitContactForm = useSubmitContactForm({
+    mutation: {
+      onSuccess: () => {
+        setSubmitted(true);
+      },
+      onError: () => {
+        toast({
+          title: "Something went wrong",
+          description: "We couldn't send your message. Please try again or email us directly.",
+          variant: "destructive",
+        });
+      },
+    },
+  });
+
   function onSubmit(data: ContactFormValues) {
-    // In a real app, send this to the backend.
-    // Here we just simulate success or use a mailto fallback.
-    console.log("Form data:", data);
-    setSubmitted(true);
+    submitContactForm.mutate({ data });
   }
 
   if (submitted) {
@@ -146,8 +161,20 @@ export function ContactForm() {
             )}
           />
 
-          <Button type="submit" className="w-full md:w-auto px-8" data-testid="button-submit">
-            Request Contact
+          <Button
+            type="submit"
+            className="w-full md:w-auto px-8"
+            data-testid="button-submit"
+            disabled={submitContactForm.isPending}
+          >
+            {submitContactForm.isPending ? (
+              <>
+                <Loader2 className="w-4 h-4 mr-2 animate-spin" />
+                Sending...
+              </>
+            ) : (
+              "Request Contact"
+            )}
           </Button>
         </form>
       </Form>
