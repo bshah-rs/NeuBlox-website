@@ -1,0 +1,11 @@
+.git
+.replit
+.replit-artifact
+.agents
+.cache
+.local
+attached_assets
+generated-artifacts
+**/node_modules
+**/dist
+**/.tsbuildinfo

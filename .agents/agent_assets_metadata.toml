@@ -1,0 +1,16 @@
+uploads = []
+generated = []
+
+[[outputs]]
+id = "tN4jHV7_kON7XwW2jrGmH"
+uri = "file://generated-artifacts/neublox-google-hosting-export.zip"
+type = "unspecified"
+title = "NeuBlox Google Hosting Export"
+description = "Source and ready-to-build website bundle with Firebase Hosting and Cloud Run configuration, plus step-by-step Google deployment instructions."
+logical_id = "f346934a-6372-46e1-bb91-2cf3578d5a6b"
+content_hash = "sha256:7600d6a4e1c5a7f6cd03801e19cfa456c873cfa9a8cbb468cedfbeac9fdbfa73"
+size = 5481925
+mtime_ms = 1792801880524
+storage_uri = "gcs://replit-rams-assets-janeway/rams/assets/repl:cd6f3ac6-45ae-49f7-81de-3b2b8f1b6919/f346934a-6372-46e1-bb91-2cf3578d5a6b/25aac516-809c-4a82-b5fc-793f7b1c0aaa"
+storage_version_token = "1792801926584513"
+content_type = "application/octet-stream"
