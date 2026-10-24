@@ -1,1 +1,2 @@
 - [GCP public Cloud Run access](gcp-public-cloud-run.md) — the NeuBlox Google Cloud project blocks `allUsers` invoker bindings; Firebase Hosting rewrites need an approved public-access path.
+- [NeuBlox stealth content](neublox-stealth-public-content.md) — public NeuBlox pages must not disclose technical details, product information, or fundraising amounts.

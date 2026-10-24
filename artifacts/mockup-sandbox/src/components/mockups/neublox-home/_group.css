@@ -1,0 +1,59 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap");
+
+:root {
+  --background: 207 33% 96%;
+  --foreground: 204 57% 22%;
+  --border: 207 33% 85%;
+  --input: 207 33% 85%;
+  --ring: 204 47% 34%;
+  --card: 0 0% 100%;
+  --card-foreground: 204 57% 22%;
+  --card-border: 207 33% 85%;
+  --popover: 0 0% 100%;
+  --popover-foreground: 204 57% 22%;
+  --popover-border: 207 33% 85%;
+  --primary: 204 47% 34%;
+  --primary-foreground: 0 0% 100%;
+  --secondary: 207 36% 46%;
+  --secondary-foreground: 0 0% 100%;
+  --muted: 205 45% 90%;
+  --muted-foreground: 204 57% 40%;
+  --accent: 205 45% 61%;
+  --accent-foreground: 0 0% 100%;
+  --destructive: 0 84.2% 60.2%;
+  --destructive-foreground: 210 40% 98%;
+  --app-font-sans: "Inter", sans-serif;
+  --app-font-serif: Georgia, serif;
+  --app-font-mono: Menlo, monospace;
+  --radius: 0.25rem;
+  --primary-border: hsl(var(--primary));
+  --secondary-border: hsl(var(--secondary));
+  --muted-border: hsl(var(--muted));
+  --accent-border: hsl(var(--accent));
+  --destructive-border: hsl(var(--destructive));
+  --button-outline: rgba(0, 0, 0, 0.1);
+}
+
+.dark {
+  --background: 204 57% 10%;
+  --foreground: 207 33% 96%;
+  --border: 204 57% 22%;
+  --input: 204 57% 22%;
+  --ring: 205 45% 61%;
+  --card: 204 57% 12%;
+  --card-foreground: 207 33% 96%;
+  --card-border: 204 57% 22%;
+  --popover: 204 57% 12%;
+  --popover-foreground: 207 33% 96%;
+  --popover-border: 204 57% 22%;
+  --primary: 204 47% 34%;
+  --primary-foreground: 0 0% 100%;
+  --secondary: 207 36% 46%;
+  --secondary-foreground: 0 0% 100%;
+  --muted: 204 57% 22%;
+  --muted-foreground: 205 45% 80%;
+  --accent: 205 45% 61%;
+  --accent-foreground: 0 0% 100%;
+  --destructive: 0 62.8% 30.6%;
+  --destructive-foreground: 210 40% 98%;
+}

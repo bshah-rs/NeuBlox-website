@@ -1,12 +1,11 @@
 export const siteConfig = {
-  name: "NeuBlox AI Inc.",
+  name: "NeuBlox",
   shortName: "NeuBlox",
-  description: "Building infrastructure for Physical AI.",
+  description: "An independent company choosing to keep its work private for now.",
   url: "https://neublox.ai",
   contactEmail: "contact@neublox.ai",
   links: {
     home: "/",
-    insights: "/insights",
     contact: "/contact",
   },
 };

@@ -57,20 +57,20 @@ export function ContactForm() {
 
   if (submitted) {
     return (
-      <div className="bg-card border p-8 rounded-xl text-center space-y-4 shadow-sm" data-testid="contact-success">
+      <div className="bg-card border p-8 rounded-xl text-center space-y-4 text-foreground shadow-sm" data-testid="contact-success">
         <div className="mx-auto w-12 h-12 bg-primary/10 text-primary flex items-center justify-center rounded-full mb-4">
           <CheckCircle2 className="w-6 h-6" />
         </div>
         <h3 className="text-xl font-semibold text-foreground">Message Received</h3>
         <p className="text-muted-foreground text-sm max-w-sm mx-auto">
-          Thank you for reaching out. We are reviewing inquiries on a rolling basis and will be in touch if there is a potential fit.
+          Thank you for reaching out. Your message has been received.
         </p>
       </div>
     );
   }
 
   return (
-    <div className="bg-card border p-8 rounded-xl shadow-sm">
+    <div className="bg-card border p-8 rounded-xl text-foreground shadow-sm">
       <Form {...form}>
         <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6" data-testid="contact-form">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -108,9 +108,9 @@ export function ContactForm() {
               name="company"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel>Company / Organization</FormLabel>
+                  <FormLabel>Organization</FormLabel>
                   <FormControl>
-                    <Input placeholder="Acme Robotics" {...field} data-testid="input-company" />
+                    <Input placeholder="Your organization" {...field} data-testid="input-company" />
                   </FormControl>
                   <FormMessage />
                 </FormItem>
@@ -121,18 +121,17 @@ export function ContactForm() {
               name="interestArea"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel>Area of Interest</FormLabel>
+                  <FormLabel>Inquiry type</FormLabel>
                   <Select onValueChange={field.onChange} defaultValue={field.value}>
                     <FormControl>
                       <SelectTrigger data-testid="select-interest">
-                        <SelectValue placeholder="Select an area" />
+                      <SelectValue placeholder="Select an inquiry type" />
                       </SelectTrigger>
                     </FormControl>
                     <SelectContent>
-                      <SelectItem value="investor">Investor</SelectItem>
-                      <SelectItem value="partner">Partner</SelectItem>
-                      <SelectItem value="talent">Talent</SelectItem>
-                      <SelectItem value="media">Media</SelectItem>
+                      <SelectItem value="general">General</SelectItem>
+                      <SelectItem value="careers">Careers</SelectItem>
+                      <SelectItem value="press">Press</SelectItem>
                       <SelectItem value="other">Other</SelectItem>
                     </SelectContent>
                   </Select>
@@ -150,7 +149,7 @@ export function ContactForm() {
                 <FormLabel>Message</FormLabel>
                 <FormControl>
                   <Textarea 
-                    placeholder="Briefly describe your interest in NeuBlox..." 
+                    placeholder="How can we help?" 
                     className="min-h-[120px] resize-y" 
                     {...field} 
                     data-testid="input-message"
@@ -173,7 +172,7 @@ export function ContactForm() {
                 Sending...
               </>
             ) : (
-              "Request Contact"
+              "Send message"
             )}
           </Button>
         </form>

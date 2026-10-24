@@ -4,37 +4,35 @@ import { ContactForm } from "@/components/contact-form";
 
 export default function Contact() {
   useEffect(() => {
-    document.title = "Contact | NeuBlox";
-    const metaDesc = document.querySelector('meta[name="description"]');
-    if (metaDesc) {
-      metaDesc.setAttribute("content", "Get in touch with the NeuBlox team. We are selectively engaging with investors, partners, and ecosystem collaborators.");
-    }
+    const title = "Contact | NeuBlox";
+    const description = "For general enquiries, get in touch with NeuBlox.";
+    document.title = title;
+    document.querySelector('meta[name="description"]')?.setAttribute("content", description);
+    document.querySelector('meta[property="og:title"]')?.setAttribute("content", title);
+    document.querySelector('meta[property="og:description"]')?.setAttribute("content", description);
+    document.querySelector('meta[name="twitter:title"]')?.setAttribute("content", title);
+    document.querySelector('meta[name="twitter:description"]')?.setAttribute("content", description);
   }, []);
 
   return (
     <Layout>
       <div className="bg-background min-h-screen pt-32 pb-24">
-        <div className="container mx-auto px-6 md:px-12">
-          <div className="max-w-3xl mx-auto">
-            <div className="mb-12">
-              <h1 className="text-4xl md:text-5xl font-bold tracking-tight mb-6 text-foreground">Stay in touch with NeuBlox.</h1>
-              <p className="text-xl text-foreground/70 leading-relaxed">
-                We are currently operating in stealth and selectively engaging with investors, partners, and ecosystem collaborators.
-              </p>
-            </div>
-            
-            <div className="grid grid-cols-1 gap-12">
-              <ContactForm />
-              
-              <div className="bg-primary/5 rounded-2xl p-8 border border-primary/10">
-                <h3 className="font-semibold text-lg mb-2">Direct Inquiries</h3>
-                <p className="text-foreground/70 mb-4">
-                  For time-sensitive matters, you can also reach our team directly via email.
-                </p>
-                <a href="mailto:contact@neublox.ai" className="text-primary font-medium hover:underline inline-flex items-center">
-                  contact@neublox.ai
-                </a>
-              </div>
+        <div className="mx-auto max-w-[1000px] px-6 md:px-12">
+          <div className="mb-12 max-w-2xl">
+            <p className="mb-5 text-[10px] font-semibold uppercase tracking-[0.28em] text-[#648494]">Contact</p>
+            <h1 className="font-sans text-4xl font-light leading-tight tracking-[-.055em] text-[#17384b] md:text-6xl">We welcome a note.</h1>
+            <p className="mt-5 text-lg leading-8 text-[#456677]">
+              For general enquiries, you are welcome to get in touch.
+            </p>
+          </div>
+          <div className="grid grid-cols-1 gap-8 md:grid-cols-[1.3fr_.7fr] md:items-start">
+            <ContactForm />
+            <div className="rounded-2xl border border-[#7897a5]/25 bg-white/60 p-7">
+              <h2 className="text-[10px] font-semibold uppercase tracking-[0.24em] text-[#648494]">Email</h2>
+              <p className="mt-4 text-sm leading-6 text-[#456677]">You can also reach the NeuBlox team directly.</p>
+              <a href="mailto:contact@neublox.ai" className="mt-4 inline-flex text-sm font-medium text-[#17384b] underline decoration-[#8ca8b4] underline-offset-4 hover:decoration-[#17384b]">
+                contact@neublox.ai
+              </a>
             </div>
           </div>
         </div>
