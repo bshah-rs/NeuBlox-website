@@ -1,4 +1,6 @@
-import { ReactNode, useState } from "react";
+import { Link, useLocation } from "wouter";
+import { siteConfig } from "@/config/site";
+import { type ReactNode, useState, useEffect } from "react";
 import { Menu, X } from "lucide-react";
 
 interface LayoutProps {
@@ -6,45 +8,116 @@ interface LayoutProps {
 }
 
 export function Layout({ children }: LayoutProps) {
+  const [location] = useLocation();
+  const [isScrolled, setIsScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const closeMenu = () => setMobileMenuOpen(false);
+
+  useEffect(() => {
+    const handleScroll = () => setIsScrolled(window.scrollY > 20);
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  useEffect(() => {
+    setMobileMenuOpen(false);
+  }, [location]);
 
   return (
-    <div className="min-h-screen bg-[#f4f8fb] font-sans text-[#17384b] selection:bg-[#b9dce9] selection:text-[#17384b]">
-      <header className="absolute inset-x-0 top-0 z-30">
-        <div className="mx-auto flex max-w-[1440px] items-center justify-between px-6 py-5 md:px-12 md:py-7">
-          <a href="/" aria-label="NeuBlox home" className="relative z-50">
-            <img src="/neublox-logo.png" alt="NeuBlox" className="h-16 w-auto object-contain md:h-20" />
-          </a>
-          <nav className="hidden items-center gap-10 text-[11px] font-medium uppercase tracking-[0.22em] text-[#35576a] md:flex">
-            <a className="transition-colors hover:text-[#102d3e]" href="/#presence">Our presence</a>
-            <a className="transition-colors hover:text-[#102d3e]" href="/#contact">Contact</a>
+    <div className="min-h-screen flex flex-col font-sans selection:bg-primary/20">
+      <header
+        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+          isScrolled
+            ? "bg-background/80 backdrop-blur-md border-b border-border/50 py-3"
+            : "bg-transparent py-5"
+        }`}
+      >
+        <div className="container mx-auto px-6 md:px-12 flex items-center justify-between">
+          <Link href="/" className="flex items-center gap-3 z-50 relative">
+            <img
+              src="/neublox-logo.png"
+              alt="NeuBlox Logo"
+              className="h-8 w-auto object-contain"
+              onError={(event) => {
+                event.currentTarget.style.display = "none";
+                const fallback = document.createElement("span");
+                fallback.className = "font-bold tracking-tight text-xl text-primary";
+                fallback.innerText = "NeuBlox";
+                event.currentTarget.parentNode?.appendChild(fallback);
+              }}
+            />
+          </Link>
+
+          <nav className="hidden md:flex items-center gap-8 text-sm font-medium">
+            <Link href="/">
+              <span className={`transition-colors hover:text-primary ${location === "/" ? "text-primary" : "text-foreground/80"}`}>
+                Home
+              </span>
+            </Link>
+            <Link href="/insights">
+              <span className={`transition-colors hover:text-primary ${location.startsWith("/insights") ? "text-primary" : "text-foreground/80"}`}>
+                Insights
+              </span>
+            </Link>
+            <Link href="/contact">
+              <span className={`transition-colors hover:text-primary ${location === "/contact" ? "text-primary" : "text-foreground/80"}`}>
+                Contact
+              </span>
+            </Link>
           </nav>
+
           <button
-            type="button"
-            aria-label={mobileMenuOpen ? "Close menu" : "Open menu"}
-            aria-controls="site-menu"
-            aria-expanded={mobileMenuOpen}
+            className="md:hidden relative z-50 p-2 text-foreground"
             onClick={() => setMobileMenuOpen((open) => !open)}
-            className="relative z-50 rounded-full border border-[#8ba5b2]/40 bg-white/35 p-2.5 text-[#17384b] backdrop-blur-md md:hidden"
+            aria-label="Toggle menu"
+            aria-expanded={mobileMenuOpen}
           >
-            {mobileMenuOpen ? <X size={18} /> : <Menu size={18} />}
+            {mobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
           </button>
         </div>
-        {mobileMenuOpen && (
-          <nav id="site-menu" className="fixed inset-0 z-40 flex flex-col items-center justify-center gap-9 bg-[#edf4f7]/95 text-sm uppercase tracking-[0.22em] backdrop-blur-xl md:hidden">
-            <a href="/#presence" onClick={closeMenu}>Our presence</a>
-            <a href="/#contact" onClick={closeMenu}>Contact</a>
-          </nav>
-        )}
       </header>
 
-      <main>{children}</main>
+      {mobileMenuOpen && (
+        <div className="fixed inset-0 z-40 bg-background/98 backdrop-blur-lg flex flex-col items-center justify-center animate-in fade-in duration-200 md:hidden">
+          <nav className="flex flex-col items-center gap-8 text-2xl font-medium">
+            <Link href="/">
+              <span className={location === "/" ? "text-primary" : "text-foreground"}>Home</span>
+            </Link>
+            <Link href="/insights">
+              <span className={location.startsWith("/insights") ? "text-primary" : "text-foreground"}>Insights</span>
+            </Link>
+            <Link href="/contact">
+              <span className={location === "/contact" ? "text-primary" : "text-foreground"}>Contact</span>
+            </Link>
+          </nav>
+        </div>
+      )}
 
-      <footer className="bg-[#173b50] text-[#a9c1ca]">
-        <div className="mx-auto flex max-w-[1440px] flex-col gap-3 border-t border-white/15 px-6 py-6 text-[9px] uppercase tracking-[0.22em] md:flex-row md:items-center md:justify-between md:px-12">
-          <span>© {new Date().getFullYear()} NeuBlox</span>
-          <a href="mailto:contact@neublox.ai" className="transition-colors hover:text-white">General enquiries</a>
+      <main className="flex-1">{children}</main>
+
+      <footer className="bg-foreground text-background py-16 border-t border-border/10">
+        <div className="container mx-auto px-6 md:px-12 grid grid-cols-1 md:grid-cols-3 gap-12">
+          <div>
+            <h2 className="text-2xl font-bold tracking-tight mb-4 text-white">NeuBlox</h2>
+            <p className="text-white/60 max-w-xs text-sm leading-relaxed">{siteConfig.description}</p>
+          </div>
+          <div className="flex flex-col gap-3 text-sm">
+            <h3 className="font-semibold text-white/80 mb-2 tracking-wide uppercase text-xs">Platform</h3>
+            <Link href="/insights">
+              <span className="text-white/60 hover:text-white transition-colors cursor-pointer">Insights</span>
+            </Link>
+            <Link href="/contact">
+              <span className="text-white/60 hover:text-white transition-colors cursor-pointer">Contact</span>
+            </Link>
+          </div>
+          <div className="flex flex-col gap-3 text-sm">
+            <h3 className="font-semibold text-white/80 mb-2 tracking-wide uppercase text-xs">Legal</h3>
+            <span className="text-white/60">Privacy Policy</span>
+            <span className="text-white/60">Terms of Service</span>
+          </div>
+        </div>
+        <div className="container mx-auto px-6 md:px-12 mt-16 pt-8 border-t border-white/10 flex flex-col md:flex-row items-center justify-between text-xs text-white/40">
+          <p>© {new Date().getFullYear()} {siteConfig.name} All rights reserved.</p>
+          <p className="mt-2 md:mt-0">Confidential &amp; Proprietary</p>
         </div>
       </footer>
     </div>

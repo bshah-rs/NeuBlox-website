@@ -1,10 +1,10 @@
 ---
-name: NeuBlox stealth public content
-description: The standing content restriction for public NeuBlox website pages.
+name: NeuBlox public content
+description: The user's current distinction between existing website copy and new deck-inspired public articles.
 ---
 
-Keep the NeuBlox public website in stealth. Do not publish technical details, product information, or fundraising amounts.
+Preserve the existing NeuBlox website content and layout when making routine updates. New public blog posts inspired by the seed deck should stay high-level and omit product details, technical specifications, performance figures, and fundraising amounts.
 
-**Why:** The user explicitly asked to keep the company in stealth and withhold these details from the public website.
+**Why:** The user said they liked the previous website and wanted only its background changed, while choosing high-level disclosure for the three new deck-inspired blogs.
 
-**How to apply:** Treat homepage copy, navigation, contact wording, SEO/social metadata, and directly accessible public routes as in scope. Verify that retired pages cannot expose old material.
+**How to apply:** Keep edits to the existing site focused on the requested changes. When writing new articles from the deck, use broad themes rather than named products, technical designs, metrics, or fundraising details.

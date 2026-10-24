@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { useParams, Link } from "wouter";
 import { Layout } from "@/components/layout";
-import { blogPosts } from "@/data/blog";
+import { blogPosts, formatBlogDate } from "@/data/blog";
 import { ArrowLeft } from "lucide-react";
 import { marked } from "marked";
 
@@ -58,7 +58,7 @@ export default function InsightDetail() {
               <span className="text-xs font-semibold uppercase tracking-wider text-primary bg-primary/10 px-3 py-1 rounded-full">
                 {post.category}
               </span>
-              <time className="text-sm text-muted-foreground">{post.date}</time>
+              <time className="text-sm text-muted-foreground" dateTime={post.date}>{formatBlogDate(post.date)}</time>
             </div>
             
             <h1 className="text-4xl md:text-5xl font-bold tracking-tight mb-8 text-foreground leading-[1.2]">

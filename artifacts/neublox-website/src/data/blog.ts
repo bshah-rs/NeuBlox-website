@@ -8,11 +8,102 @@ export interface BlogPost {
   content: string;
 }
 
+export function formatBlogDate(isoDate: string): string {
+  const [year, month, day] = isoDate.split("-").map(Number);
+  return new Intl.DateTimeFormat("en-US", {
+    month: "long",
+    day: "numeric",
+    year: "numeric",
+    timeZone: "UTC",
+  }).format(new Date(Date.UTC(year, month - 1, day)));
+}
+
 export const blogPosts: BlogPost[] = [
+  {
+    slug: "more-than-one-pace",
+    title: "Intelligent Machines Live at More Than One Pace",
+    date: "2026-10-20",
+    category: "Robotics",
+    author: "NeuBlox Insights",
+    excerpt: "Robotics brings together careful planning, quick action, and the steady attention needed to keep people safe.",
+    content: `
+## Different moments ask for different kinds of attention
+
+A robot moving through the world has to do more than follow a plan. It must make sense of a situation, choose what to do next, and respond when the situation changes. Some moments reward patience and consideration. Others leave little room between noticing a change and reacting to it.
+
+That mix of tempos is easy to miss when we talk about intelligent machines as if they only need to “think.” Real environments ask for thought and action to stay connected. A useful plan has to remain open to new information. A quick response has to remain consistent with the broader task. And safety has to be present throughout, not saved for the final step.
+
+## Coordination matters more than speed alone
+
+Making one part of a system faster does not automatically make the whole experience better. If a quick response loses sight of the goal, or a careful plan cannot adapt, the result can still feel unreliable. The important question is how different kinds of attention work together.
+
+This is a familiar challenge in everyday life. We make plans, notice what has changed, and adjust without stopping to separate those activities into neat stages. Machines that share our spaces will be judged in much the same way: by whether their behavior feels coherent from one moment to the next.
+
+## Designing for the full rhythm of a task
+
+The next chapter of robotics will depend on systems that can balance anticipation with responsiveness. That balance is not a single feature or a single benchmark. It is a way of thinking about the complete task, from the first instruction through the final movement.
+
+When planning, action, and care for people remain aligned, intelligent machines can become more dependable participants in the world around them.
+    `.trim()
+  },
+  {
+    slug: "whole-system-earns-trust",
+    title: "Why the Whole System Has to Earn Trust",
+    date: "2026-10-02",
+    category: "AI Infrastructure",
+    author: "NeuBlox Insights",
+    excerpt: "People experience a machine as one whole, even when its capabilities are assembled from many separate parts.",
+    content: `
+## People meet the whole, not the parts
+
+When a machine behaves well, it is tempting to credit the most visible capability. When it behaves unpredictably, people rarely care which component was responsible. They experience the complete interaction: what the machine noticed, how it responded, and whether it remained consistent with what they expected.
+
+That gap between internal complexity and outward experience matters. A system assembled from many separate pieces can work, but every handoff creates another place where assumptions have to match. If those assumptions drift, the burden often falls on the people who use, maintain, or support the machine.
+
+## Integration is part of the experience
+
+Good integration is often quiet. It means that different responsibilities fit together without making the user think about the seams. The same principle applies to safety and reliability. They are not finishing touches that can be added after the rest of a system is complete; they shape what a dependable experience looks like from the beginning.
+
+This is especially important in settings where machines share space with people. A behavior that is easy to understand and consistent over time is easier to trust than one that works only when everything goes as expected.
+
+## Make complexity easier to live with
+
+The goal is not to pretend that complex systems are simple. It is to keep that complexity from becoming someone else’s daily problem. Clear responsibilities, predictable behavior, and thoughtful coordination make systems easier to operate and improve.
+
+As robotics becomes more common, the quality of the whole will matter as much as the promise of any one part. Trust is earned when all the pieces work together in a way people can understand.
+    `.trim()
+  },
+  {
+    slug: "gap-between-seeing-and-doing",
+    title: "The Gap Between Seeing and Doing",
+    date: "2026-09-15",
+    category: "Robotics",
+    author: "NeuBlox Insights",
+    excerpt: "Recognizing a situation is only the beginning; useful robotics depends on dependable action in changing environments.",
+    content: `
+## A demonstration is a beginning
+
+A polished demonstration can show what a machine is capable of in a carefully prepared moment. Everyday use asks a different question: can it continue to behave well when the scene changes, an object shifts, or another person enters the picture?
+
+Seeing what is happening is only one part of the task. A machine also has to connect that understanding to an action, then stay attentive to what happens next. The real world rarely waits for every condition to be perfect.
+
+## Reliability lives in ordinary moments
+
+People notice reliability through small things. Does the machine respond in a way that makes sense? Can it recover when something unexpected happens? Does it behave with care around the people and objects nearby?
+
+Those questions are broader than a single technical milestone. They involve coordination, energy, safety, and the ability for people to use a system without becoming specialists in everything happening behind the scenes. A successful prototype is valuable, but dependable behavior over time is what makes a tool useful.
+
+## From impressive to dependable
+
+The path forward is not only about making machines recognize more. It is about helping them act in ways that remain understandable and consistent as conditions change. That requires attention to the complete experience, not just the most impressive moment.
+
+When seeing and doing stay connected, robotics can move beyond isolated demonstrations and toward tasks people can rely on. That progress is measured in ordinary moments handled well.
+    `.trim()
+  },
   {
     slug: "physical-ai-models-to-machines",
     title: "Physical AI Is Moving from Models to Machines",
-    date: "2025-05-12",
+    date: "2026-09-01",
     category: "Physical AI",
     author: "NeuBlox Insights",
     excerpt: "AI is beginning to move beyond digital workflows into systems that perceive, decide, and act in the physical world.",
@@ -39,7 +130,7 @@ This is the challenge we are taking on. Building the infrastructure layer requir
   {
     slug: "real-time-intelligence-robotics",
     title: "Why Real-Time Intelligence Matters for Robotics",
-    date: "2025-04-28",
+    date: "2026-08-15",
     category: "Robotics",
     author: "NeuBlox Insights",
     excerpt: "Physical-world AI requires responsiveness, efficiency, and reliability that are different from traditional cloud AI workloads.",
@@ -67,7 +158,7 @@ As foundation models become more capable, the bottleneck shifts from the model's
   {
     slug: "infrastructure-stack-intelligent-machines",
     title: "The Emerging Infrastructure Stack for Intelligent Machines",
-    date: "2025-04-10",
+    date: "2026-07-28",
     category: "AI Infrastructure",
     author: "NeuBlox Insights",
     excerpt: "Robotics, simulation, edge compute, and foundation models are converging into a new infrastructure category.",

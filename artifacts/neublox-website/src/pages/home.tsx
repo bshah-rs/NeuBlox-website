@@ -1,104 +1,210 @@
 import { useEffect } from "react";
+import { Link } from "wouter";
 import { Layout } from "@/components/layout";
+import { Button } from "@/components/ui/button";
 import { ContactForm } from "@/components/contact-form";
-import { ArrowDownRight, ArrowUpRight } from "lucide-react";
+import { blogPosts, formatBlogDate } from "@/data/blog";
+import { ArrowRight, ChevronRight, Cpu, Network, Cpu as RobotIcon } from "lucide-react";
 
 export default function Home() {
   useEffect(() => {
-    const title = "NeuBlox | A company in stealth";
-    const description = "NeuBlox is an independent company choosing to keep its work private for now. For general enquiries, get in touch.";
-    document.title = title;
-    document.querySelector('meta[name="description"]')?.setAttribute("content", description);
-    document.querySelector('meta[property="og:title"]')?.setAttribute("content", title);
-    document.querySelector('meta[property="og:description"]')?.setAttribute("content", description);
-    document.querySelector('meta[name="twitter:title"]')?.setAttribute("content", title);
-    document.querySelector('meta[name="twitter:description"]')?.setAttribute("content", description);
+    document.title = "NeuBlox | Physical AI Infrastructure";
+    const metaDesc = document.querySelector('meta[name="description"]');
+    if (metaDesc) {
+      metaDesc.setAttribute("content", "NeuBlox is a stealth company building next-generation infrastructure for Physical AI.");
+    }
   }, []);
+
+  const latestPosts = blogPosts.slice(0, 3);
+
+  const scrollToContact = () => {
+    const contactSection = document.getElementById("contact");
+    if (contactSection) {
+      contactSection.scrollIntoView({ behavior: "smooth" });
+    }
+  };
 
   return (
     <Layout>
-      <section id="top" className="relative isolate flex min-h-[760px] items-end overflow-hidden md:min-h-[880px]">
+      <section id="top" className="relative pt-32 pb-20 md:pt-48 md:pb-32 overflow-hidden flex items-center min-h-[90vh]">
         <img
           src="/images/neublox-stealth-background.jpg"
           alt=""
           aria-hidden="true"
-          className="absolute inset-0 -z-20 h-full w-full object-cover object-center"
+          className="absolute inset-0 h-full w-full object-cover object-center"
         />
-        <div className="absolute inset-0 -z-10 bg-gradient-to-b from-[#eaf3f8]/55 via-transparent to-[#eaf3f8]/90" />
-        <div className="absolute inset-0 -z-10 bg-gradient-to-r from-[#eef5f8]/35 via-transparent to-transparent" />
-        <div className="mx-auto w-full max-w-[1440px] px-6 pb-16 pt-36 md:px-12 md:pb-24">
-          <div className="max-w-[760px] animate-[arrive_.9s_ease-out_both]">
-            <div className="mb-7 flex items-center gap-3">
-              <span className="h-px w-10 bg-[#557b8d]" />
-              <p className="text-[10px] font-semibold uppercase tracking-[0.3em] text-[#35576a]">A company in stealth</p>
-            </div>
-            <h1 className="font-sans text-[clamp(3.4rem,9vw,8rem)] font-light leading-[.91] tracking-[-.075em] text-[#15384d]">
-              Quietly<br />taking shape.
-            </h1>
-            <p className="mt-8 max-w-[470px] text-base leading-7 text-[#36586a] md:mt-10 md:text-lg md:leading-8">
-              NeuBlox is an independent company choosing to keep its work private for now.
-            </p>
-            <a href="#contact" className="group mt-9 inline-flex items-center gap-4 text-[11px] font-semibold uppercase tracking-[0.2em] text-[#17384b] md:mt-12">
-              A note to our team
-              <span className="grid h-10 w-10 place-items-center rounded-full border border-[#527487]/45 transition-transform duration-300 group-hover:translate-x-1 group-hover:-translate-y-1">
-                <ArrowDownRight size={17} strokeWidth={1.5} />
+        <div className="absolute inset-0 bg-gradient-to-r from-background/95 via-background/80 to-background/25" />
+        <div className="absolute inset-0 bg-gradient-to-t from-background/55 via-transparent to-background/20" />
+
+        <div className="container mx-auto px-6 md:px-12 relative z-10 animate-in fade-in slide-in-from-bottom-8 duration-1000">
+          <div className="max-w-4xl">
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/10 text-primary text-xs font-semibold tracking-wide mb-6 uppercase border border-primary/20">
+              <span className="relative flex h-2 w-2">
+                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75"></span>
+                <span className="relative inline-flex rounded-full h-2 w-2 bg-primary"></span>
               </span>
-            </a>
+              Stealth
+            </div>
+            <h1 className="text-5xl md:text-7xl font-bold tracking-tight text-foreground leading-[1.1] mb-6">
+              Building infrastructure <br className="hidden md:block" /> for Physical AI.
+            </h1>
+            <p className="text-xl md:text-2xl text-foreground/70 mb-10 max-w-3xl leading-relaxed">
+              NeuBlox is a stealth company working at the intersection of AI, robotics, and real-world intelligent systems.
+            </p>
+
+            <div className="flex flex-col sm:flex-row gap-4 mb-12">
+              <Button size="lg" onClick={scrollToContact} className="text-base h-14 px-8 shadow-sm">
+                Stay in Touch
+              </Button>
+              <Link href="/insights">
+                <Button size="lg" variant="outline" className="text-base h-14 px-8 border-primary/20 hover:bg-primary/5">
+                  Read Insights <ArrowRight className="ml-2 w-4 h-4" />
+                </Button>
+              </Link>
+            </div>
+
+            <p className="text-sm text-foreground/50 max-w-lg border-l-2 border-primary/30 pl-4 py-1 italic">
+              We are currently sharing limited public information while engaging selectively with investors, partners, and ecosystem collaborators.
+            </p>
           </div>
-          <div className="mt-16 flex items-center justify-between border-t border-[#527487]/25 pt-4 text-[9px] uppercase tracking-[0.23em] text-[#547384] md:mt-24">
-            <span>NeuBlox</span>
-            <span>Private by design</span>
-          </div>
-        </div>
-        <div className="absolute right-6 top-[43%] hidden -translate-y-1/2 [writing-mode:vertical-rl] text-[9px] uppercase tracking-[0.3em] text-[#567788]/75 md:block">
-          A considered beginning
         </div>
       </section>
 
-      <section id="presence" className="relative overflow-hidden bg-[#eaf2f6]">
-        <div className="mx-auto grid max-w-[1440px] gap-12 px-6 py-24 md:grid-cols-[.78fr_1.22fr] md:gap-24 md:px-12 md:py-36">
-          <div>
-            <p className="text-[10px] font-semibold uppercase tracking-[0.28em] text-[#648494]">A brief introduction</p>
-            <h2 className="mt-7 max-w-[430px] font-sans text-4xl font-light leading-[1.05] tracking-[-.055em] text-[#17384b] md:text-6xl">
-              Present, by choice. Private, by design.
-            </h2>
-          </div>
-          <div className="flex flex-col justify-end md:pb-1">
-            <p className="max-w-[570px] text-lg leading-8 text-[#456677] md:text-[21px] md:leading-9">
-              Our public presence is intentionally simple while we keep our work private. Thank you for taking the time to learn about NeuBlox.
+      <section className="py-24 bg-card border-y border-border/40 relative overflow-hidden">
+        <div className="container mx-auto px-6 md:px-12">
+          <div className="max-w-4xl mx-auto text-center">
+            <h2 className="text-3xl md:text-4xl font-bold mb-8 text-foreground">Physical AI is entering the real world.</h2>
+            <p className="text-lg md:text-xl text-foreground/70 leading-relaxed">
+              The next wave of AI will not live only in text, images, and software workflows. It will move into machines that perceive, reason, adapt, and act in dynamic physical environments. <strong className="text-foreground font-semibold">NeuBlox is focused on the infrastructure layer required to make that transition practical, scalable, and real-time.</strong>
             </p>
-            <div className="mt-12 grid max-w-[570px] grid-cols-2 border-y border-[#7897a5]/35 py-5">
-              <div>
-                <p className="text-[9px] uppercase tracking-[0.25em] text-[#718f9d]">Public presence</p>
-                <p className="mt-2 text-sm text-[#294c60]">A quiet introduction</p>
+          </div>
+        </div>
+      </section>
+
+      <section className="py-32 relative">
+        <div className="container mx-auto px-6 md:px-12">
+          <div className="mb-16">
+            <h2 className="text-3xl font-bold mb-4">What we are exploring</h2>
+            <div className="h-1 w-20 bg-primary rounded-full"></div>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div className="group bg-background border border-border/60 hover:border-primary/30 p-8 rounded-2xl transition-all duration-300 hover:shadow-md">
+              <div className="w-12 h-12 bg-primary/10 text-primary rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+                <Network className="w-6 h-6" />
               </div>
-              <div className="border-l border-[#7897a5]/35 pl-5 md:pl-8">
-                <p className="text-[9px] uppercase tracking-[0.25em] text-[#718f9d]">More to come</p>
-                <p className="mt-2 text-sm text-[#294c60]">When the time is right</p>
+              <h3 className="text-xl font-bold mb-3">Real-world intelligence</h3>
+              <p className="text-foreground/70 leading-relaxed">
+                Systems that connect perception, decision-making, and action in physical environments.
+              </p>
+            </div>
+
+            <div className="group bg-background border border-border/60 hover:border-primary/30 p-8 rounded-2xl transition-all duration-300 hover:shadow-md">
+              <div className="w-12 h-12 bg-primary/10 text-primary rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+                <Cpu className="w-6 h-6" />
               </div>
+              <h3 className="text-xl font-bold mb-3">Efficient AI infrastructure</h3>
+              <p className="text-foreground/70 leading-relaxed">
+                Architectures that can support responsive, low-latency intelligence beyond traditional cloud-centric AI.
+              </p>
+            </div>
+
+            <div className="group bg-background border border-border/60 hover:border-primary/30 p-8 rounded-2xl transition-all duration-300 hover:shadow-md">
+              <div className="w-12 h-12 bg-primary/10 text-primary rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+                <RobotIcon className="w-6 h-6" />
+              </div>
+              <h3 className="text-xl font-bold mb-3">Robotics ecosystem enablement</h3>
+              <p className="text-foreground/70 leading-relaxed">
+                Tools and platforms that help accelerate the path from simulation, training, and validation to deployment.
+              </p>
             </div>
           </div>
         </div>
-        <div className="pointer-events-none absolute -right-24 -top-24 h-72 w-72 rounded-full border border-[#8eacb8]/25 md:h-[440px] md:w-[440px]" />
-        <div className="pointer-events-none absolute -right-10 -top-10 h-72 w-72 rounded-full border border-[#8eacb8]/20 md:h-[440px] md:w-[440px]" />
       </section>
 
-      <section id="contact" className="relative bg-[#173b50] text-[#edf5f7] scroll-mt-8">
-        <div className="mx-auto grid max-w-[1440px] gap-12 px-6 py-20 md:grid-cols-[.78fr_1.22fr] md:items-start md:px-12 md:py-28">
-          <div className="md:sticky md:top-24">
-            <p className="text-[10px] font-semibold uppercase tracking-[0.28em] text-[#a9c5d0]">Contact</p>
-            <h2 className="mt-6 max-w-[560px] font-sans text-4xl font-light leading-[1.02] tracking-[-.055em] md:text-6xl">
-              We welcome a note.
-            </h2>
-            <p className="mt-6 max-w-[420px] text-base leading-7 text-[#c1d4dc]">
-              For general enquiries, you are welcome to get in touch.
-            </p>
-            <a href="mailto:contact@neublox.ai" className="group mt-8 inline-flex items-center gap-3 border-b border-[#a5c1cc]/55 pb-2 text-sm text-[#edf5f7] transition-colors hover:border-[#edf5f7]">
-              contact@neublox.ai
-              <ArrowUpRight size={16} className="transition-transform duration-300 group-hover:translate-x-1 group-hover:-translate-y-1" />
-            </a>
+      <section className="py-24 bg-primary text-primary-foreground relative overflow-hidden">
+        <div className="absolute inset-0 opacity-10">
+          <svg className="w-full h-full" viewBox="0 0 100 100" preserveAspectRatio="none">
+            <path d="M0,0 L100,100 M100,0 L0,100" stroke="currentColor" strokeWidth="0.5" vectorEffect="non-scaling-stroke" />
+            <circle cx="50" cy="50" r="30" stroke="currentColor" strokeWidth="0.5" fill="none" vectorEffect="non-scaling-stroke" />
+          </svg>
+        </div>
+
+        <div className="container mx-auto px-6 md:px-12 relative z-10">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+            <div>
+              <h2 className="text-4xl md:text-5xl font-bold mb-6">Why now.</h2>
+            </div>
+            <div>
+              <p className="text-lg md:text-xl text-primary-foreground/90 leading-relaxed border-l-4 border-primary-foreground/30 pl-6 py-2">
+                Foundation models are expanding from digital reasoning into physical-world interaction. At the same time, robotics, simulation, edge compute, and AI infrastructure are converging. This creates a new opportunity to rethink the compute and software stack for intelligent machines.
+              </p>
+            </div>
           </div>
-          <ContactForm />
+        </div>
+      </section>
+
+      <section className="py-32 bg-background relative">
+        <div className="container mx-auto px-6 md:px-12">
+          <div className="flex justify-between items-end mb-16">
+            <div>
+              <h2 className="text-3xl font-bold mb-4">Insights</h2>
+              <div className="h-1 w-20 bg-primary rounded-full"></div>
+            </div>
+            <Link href="/insights">
+              <span className="hidden md:flex items-center text-primary font-medium hover:underline cursor-pointer group">
+                View all insights <ChevronRight className="ml-1 w-4 h-4 group-hover:translate-x-1 transition-transform" />
+              </span>
+            </Link>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-10">
+            {latestPosts.map((post) => (
+              <Link key={post.slug} href={`/insights/${post.slug}`}>
+                <div className="group h-full flex flex-col bg-card border border-border/60 hover:border-primary/40 rounded-2xl overflow-hidden transition-all hover:shadow-lg cursor-pointer">
+                  <div className="p-8 flex-1 flex flex-col">
+                    <div className="flex items-center justify-between mb-6">
+                      <span className="text-xs font-semibold uppercase tracking-wider text-primary bg-primary/10 px-3 py-1 rounded-full">
+                        {post.category}
+                      </span>
+                      <time className="text-sm text-muted-foreground" dateTime={post.date}>{formatBlogDate(post.date)}</time>
+                    </div>
+                    <h3 className="text-xl font-bold mb-4 group-hover:text-primary transition-colors leading-tight">
+                      {post.title}
+                    </h3>
+                    <p className="text-foreground/70 text-sm leading-relaxed mb-8 flex-1">
+                      {post.excerpt}
+                    </p>
+                    <div className="flex items-center text-sm font-semibold text-primary mt-auto">
+                      Read more <ArrowRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                    </div>
+                  </div>
+                </div>
+              </Link>
+            ))}
+          </div>
+
+          <div className="md:hidden mt-8 text-center">
+            <Link href="/insights">
+              <Button variant="outline" className="w-full">
+                View all insights
+              </Button>
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      <section id="contact" className="py-32 bg-card border-t border-border/40 scroll-mt-16">
+        <div className="container mx-auto px-6 md:px-12">
+          <div className="max-w-3xl mx-auto">
+            <div className="text-center mb-12">
+              <h2 className="text-3xl md:text-4xl font-bold mb-6">Stay in touch with NeuBlox.</h2>
+              <p className="text-lg text-foreground/70">
+                NeuBlox is currently in stealth. If you are an investor, robotics partner, AI infrastructure company, or builder interested in Physical AI, we would be glad to connect.
+              </p>
+            </div>
+            <ContactForm />
+          </div>
         </div>
       </section>
     </Layout>

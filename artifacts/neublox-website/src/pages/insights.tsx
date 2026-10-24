@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { Link } from "wouter";
 import { Layout } from "@/components/layout";
-import { blogPosts } from "@/data/blog";
+import { blogPosts, formatBlogDate } from "@/data/blog";
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Filter } from "lucide-react";
 
@@ -66,7 +66,7 @@ export default function Insights() {
                         <span className="text-xs font-semibold uppercase tracking-wider text-primary bg-primary/10 px-3 py-1 rounded-full">
                           {post.category}
                         </span>
-                        <time className="text-sm text-muted-foreground">{post.date}</time>
+                        <time className="text-sm text-muted-foreground" dateTime={post.date}>{formatBlogDate(post.date)}</time>
                       </div>
                       <h3 className="text-2xl font-bold mb-4 group-hover:text-primary transition-colors leading-tight">
                         {post.title}
