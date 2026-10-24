@@ -1,7 +1,7 @@
 FROM node:24-slim AS build
 
 WORKDIR /workspace
-RUN corepack enable
+RUN corepack enable && corepack prepare pnpm@10.26.1 --activate
 
 COPY . .
 RUN pnpm install --frozen-lockfile
