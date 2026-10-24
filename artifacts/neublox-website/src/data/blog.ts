@@ -22,7 +22,7 @@ export const blogPosts: BlogPost[] = [
   {
     slug: "more-than-one-pace",
     title: "Intelligent Machines Live at More Than One Pace",
-    date: "2026-11-03",
+    date: "2026-10-24",
     category: "Robotics",
     author: "NeuBlox Insights",
     excerpt: "Robotics brings together careful planning, quick action, and the steady attention needed to keep people safe.",
@@ -49,7 +49,7 @@ When planning, action, and care for people remain aligned, intelligent machines 
   {
     slug: "from-data-to-field-deployment",
     title: "From Data to Deployment: The Work Behind Field-Ready Robots",
-    date: "2026-10-23",
+    date: "2026-10-13",
     category: "Robotics",
     author: "NeuBlox Insights",
     excerpt: "Field deployment takes more than a successful demo: it calls for representative data, safe practice, careful evaluation, and learning from what happens next.",
@@ -82,7 +82,7 @@ Field readiness is not a single handoff or a final checkbox. It is the ability t
   {
     slug: "whole-system-earns-trust",
     title: "Why the Whole System Has to Earn Trust",
-    date: "2026-10-16",
+    date: "2026-10-06",
     category: "AI Infrastructure",
     author: "NeuBlox Insights",
     excerpt: "People experience a machine as one whole, even when its capabilities are assembled from many separate parts.",
@@ -109,7 +109,7 @@ As robotics becomes more common, the quality of the whole will matter as much as
   {
     slug: "gap-between-seeing-and-doing",
     title: "The Gap Between Seeing and Doing",
-    date: "2026-09-29",
+    date: "2026-09-19",
     category: "Robotics",
     author: "NeuBlox Insights",
     excerpt: "Recognizing a situation is only the beginning; useful robotics depends on dependable action in changing environments.",
@@ -136,7 +136,7 @@ When seeing and doing stay connected, robotics can move beyond isolated demonstr
   {
     slug: "physical-ai-models-to-machines",
     title: "Physical AI Is Moving from Models to Machines",
-    date: "2026-09-15",
+    date: "2026-09-05",
     category: "Physical AI",
     author: "NeuBlox Insights",
     excerpt: "AI is beginning to move beyond digital workflows into systems that perceive, decide, and act in the physical world.",
@@ -163,7 +163,7 @@ This is the challenge we are taking on. Building the infrastructure layer requir
   {
     slug: "real-time-intelligence-robotics",
     title: "Why Real-Time Intelligence Matters for Robotics",
-    date: "2026-08-29",
+    date: "2026-08-19",
     category: "Robotics",
     author: "NeuBlox Insights",
     excerpt: "Physical-world AI requires responsiveness, efficiency, and reliability that are different from traditional cloud AI workloads.",
@@ -191,7 +191,7 @@ As foundation models become more capable, the bottleneck shifts from the model's
   {
     slug: "infrastructure-stack-intelligent-machines",
     title: "The Emerging Infrastructure Stack for Intelligent Machines",
-    date: "2026-08-11",
+    date: "2026-08-01",
     category: "AI Infrastructure",
     author: "NeuBlox Insights",
     excerpt: "Robotics, simulation, edge compute, and foundation models are converging into a new infrastructure category.",
