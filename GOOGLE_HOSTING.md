@@ -43,6 +43,13 @@ Replace `YOUR_INBOX` with the address that should receive contact requests and
 `YOUR_VERIFIED_SENDER` with a sender address authorized in Resend. The API key
 is injected from Secret Manager at runtime and is not part of the image.
 
+Firebase Hosting's Cloud Run rewrite requires the API service to accept
+requests from the public website. If an organization policy blocks the
+`allUsers` Cloud Run Invoker binding, ask the project administrator for an
+approved exception on this service or use a Google Cloud project that permits
+public website backends. Do not weaken an organization-wide policy to work
+around that restriction.
+
 ## 2. Set up Firebase Hosting
 
 Sign in to Firebase CLI and associate this folder with your Firebase project:
