@@ -22,7 +22,7 @@ export const blogPosts: BlogPost[] = [
   {
     slug: "more-than-one-pace",
     title: "Intelligent Machines Live at More Than One Pace",
-    date: "2026-10-20",
+    date: "2026-11-03",
     category: "Robotics",
     author: "NeuBlox Insights",
     excerpt: "Robotics brings together careful planning, quick action, and the steady attention needed to keep people safe.",
@@ -47,9 +47,42 @@ When planning, action, and care for people remain aligned, intelligent machines 
     `.trim()
   },
   {
+    slug: "from-data-to-field-deployment",
+    title: "From Data to Deployment: The Work Behind Field-Ready Robots",
+    date: "2026-10-23",
+    category: "Robotics",
+    author: "NeuBlox Insights",
+    excerpt: "Field deployment takes more than a successful demo: it calls for representative data, safe practice, careful evaluation, and learning from what happens next.",
+    content: `
+## The field is different from a demo
+
+A controlled demonstration is a useful starting point, but everyday work rarely stays inside carefully prepared conditions. Objects move, routines change, people enter and leave, and small surprises can alter the task. To understand how a robot will behave, teams need examples and tests that reflect that variety—not only the cleanest version of the job.
+
+Collecting useful data in the field takes planning. Teams have to decide what to observe, how to capture different situations, and how to learn from a failed attempt without disrupting the people or work around it. The goal is not to collect everything. It is to gather examples that reveal where behavior is dependable and where it needs more attention.
+
+## Simulation makes practice repeatable
+
+Simulation offers a place to rehearse situations that are difficult, costly, or unsafe to repeat in a real setting. Teams can compare approaches, explore less common conditions, and learn from the same scenario more than once.
+
+But a simulation is still a model of the world, not the world itself. Its assumptions need to be checked against real experience. A result that looks convincing in a simulated setting should be treated as one step toward field confidence, not proof that the work is finished.
+
+## Training is a continuous loop
+
+Useful progress comes from connecting demonstrations, simulated trials, and field observations. Each can expose different gaps. Training can improve behavior, while a separate, thoughtful evaluation helps teams see whether the improvement holds beyond the examples used to create it.
+
+That loop can be described simply: collect examples, practice safely, improve, deploy carefully, evaluate the outcome, and use what was learned to guide the next round. The important part is that each stage informs the next.
+
+## Deployment includes the people and the process
+
+Taking a robot into a workplace also means preparing the people who will work around it. Teams need clear operating expectations, a safe way to pause or recover from unexpected behavior, and a plan for ongoing support.
+
+Field readiness is not a single handoff or a final checkbox. It is the ability to keep learning while protecting the people and operations involved. The strongest deployments are built on that steady cycle of preparation, observation, and improvement.
+    `.trim()
+  },
+  {
     slug: "whole-system-earns-trust",
     title: "Why the Whole System Has to Earn Trust",
-    date: "2026-10-02",
+    date: "2026-10-16",
     category: "AI Infrastructure",
     author: "NeuBlox Insights",
     excerpt: "People experience a machine as one whole, even when its capabilities are assembled from many separate parts.",
@@ -76,7 +109,7 @@ As robotics becomes more common, the quality of the whole will matter as much as
   {
     slug: "gap-between-seeing-and-doing",
     title: "The Gap Between Seeing and Doing",
-    date: "2026-09-15",
+    date: "2026-09-29",
     category: "Robotics",
     author: "NeuBlox Insights",
     excerpt: "Recognizing a situation is only the beginning; useful robotics depends on dependable action in changing environments.",
@@ -103,7 +136,7 @@ When seeing and doing stay connected, robotics can move beyond isolated demonstr
   {
     slug: "physical-ai-models-to-machines",
     title: "Physical AI Is Moving from Models to Machines",
-    date: "2026-09-01",
+    date: "2026-09-15",
     category: "Physical AI",
     author: "NeuBlox Insights",
     excerpt: "AI is beginning to move beyond digital workflows into systems that perceive, decide, and act in the physical world.",
@@ -130,7 +163,7 @@ This is the challenge we are taking on. Building the infrastructure layer requir
   {
     slug: "real-time-intelligence-robotics",
     title: "Why Real-Time Intelligence Matters for Robotics",
-    date: "2026-08-15",
+    date: "2026-08-29",
     category: "Robotics",
     author: "NeuBlox Insights",
     excerpt: "Physical-world AI requires responsiveness, efficiency, and reliability that are different from traditional cloud AI workloads.",
@@ -158,7 +191,7 @@ As foundation models become more capable, the bottleneck shifts from the model's
   {
     slug: "infrastructure-stack-intelligent-machines",
     title: "The Emerging Infrastructure Stack for Intelligent Machines",
-    date: "2026-07-28",
+    date: "2026-08-11",
     category: "AI Infrastructure",
     author: "NeuBlox Insights",
     excerpt: "Robotics, simulation, edge compute, and foundation models are converging into a new infrastructure category.",
